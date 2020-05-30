@@ -1,0 +1,60 @@
+<div class="jumbotron">
+  <h1 class="display-4">Game of the Year of 2013!</h1>
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img [src]="juego.img" class="card-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{juego.nombre}}</h5>
+          <p class="card-text">{{juego.info}}</p>
+          <p class="card-text"><small class="text-muted">Precio: {{juego.precio}}</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="lead">Por la compra del juego adquieres un regalo especial por parte de Reset Games</p>
+  <button class="btn btn-primary button-small" id="regalo" (click)="Ocultar()" disabled="true">Regalo
+    deshabilitado</button>
+  <hr class="my-4">
+  <button type="button" id="compra" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#staticBackdrop">
+    Comprar</button>
+  <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">GTA V</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75"
+              aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+          </div>
+          <p class="display-4" id="texto">Gracias por confiar en nosotros!</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" id="pago" (click)="comprar()" class="btn btn-primary">Pagar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3 id="texto2"></h3>
+  <div *ngIf="regalo">
+    <h1>Felicitaciones su regalo por la compra es: {{juegoRegalo.nombre}}</h1>
+    <div class="card mb-3">
+      <img [src]="juegoRegalo.img" class="card-img-top" alt="borderlands-3.">
+      <div class="card-body">
+        <h5 class="card-title">{{juegoRegalo.nombre}}</h5>
+        <p class="card-text">{{juegoRegalo.info}}</p>
+        <p class="card-text"><small class="text-muted">Hace un minuto</small></p>
+      </div>
+    </div>
+    <button type="button" id="pago" (click)="Ocultar()" class="btn btn-primary">Ocultar regalo</button>
+  </div>
+</div>

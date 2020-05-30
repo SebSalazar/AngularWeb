@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col" *ngFor="let item of juegos; let i = index">
+    <div *ngIf="item.nombre != 'Fortnite' ">
+      <div class="card">
+        <img [src]="item.img" class="card-img-top">
+        <div class="card-body">
+          <h4 class="card-title" style="color: crimson"><b>{{i+1}}) {{item.nombre}}</b></h4>
+          <p class="card-text">{{item.info}}</p>
+          <ng-container *ngIf="i==0; else elseTemplate">
+            <a href="./gta" class="btn btn-primary">Mas info del GTA V</a>
+          </ng-container>
+          <ng-template #elseTemplate>
+            <a href="#" class="btn btn-primary">Mas info</a>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+    <div class="card" *ngIf="i==3">
+      <button class="btn btn-danger" id="but" (click)="cambio()">Revelar Juego del año</button>
+    </div>
+  </div>
+  <div *ngIf="boton">
+    <div class="card">
+      <img [src]="juegos[3].img" class="card-img-top">
+      <div class="card-body">
+        <h4 class="card-title" style="color: crimson"><b>4) {{juegos[3].nombre}}</b></h4>
+        <p class="card-text">{{juegos[3].info}}</p>
+        <a href="#" class="btn btn-primary">Mas info</a>
+      </div>
+    </div>
+  </div>
+</div>
